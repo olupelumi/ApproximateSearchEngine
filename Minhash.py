@@ -34,7 +34,7 @@ class HashTable():
         #Creating the seeds for my each of the k*L hash functions
         self.h_sd_arr = [[random.randrange(self.K * self.L * 2) for i in range(self.K)] for j in range(self.L)]
         #self.id = 0
-    def insert(self,s_input):
+    def insert(self,s_input, idee):
         '''
         Input a string s and an integer id that coincides with it. 
         Returns nothing
@@ -44,7 +44,6 @@ class HashTable():
         
         #Number used to know which vector of seeds
         cnt = 0  
-        print(s_input)
         for htable in self.L_lst:
             #Need to figure out how to use all the seeds I created(just use the indexes probably)
             key_str = "" #string that I will hash later
@@ -55,7 +54,7 @@ class HashTable():
                 key_str += kstring
                 
             #Now I need to add the id into the bucket of the hashtable
-            htable[key_str].add(s_input)
+            htable[key_str].add(idee)
             cnt +=1
     def lookup(self, query):
         '''
